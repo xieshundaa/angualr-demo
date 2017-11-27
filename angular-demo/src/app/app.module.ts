@@ -1,27 +1,31 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, FormControl,  ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { WorkSpaceComponent } from './work-space/work-space.component';
-import { NgClass } from '@angular/common';
+
+import { WorkspaceModule } from './work-space/work-space.module';
+import { LoginComponent } from './login/login.component';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    WorkSpaceComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     BrowserAnimationsModule,
-    NgZorroAntdModule,
     NgZorroAntdModule.forRoot(),
+    WorkspaceModule,
     AppRoutingModule
   ],
   providers: [],

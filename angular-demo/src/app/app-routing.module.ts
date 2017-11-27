@@ -1,12 +1,26 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { WorkSpaceComponent } from './work-space/work-space.component';
 
+import { LoginComponent } from './login/login.component';
 
 const appRoutes: Routes = [
-  { path: 'workspace', component: WorkSpaceComponent },
-  { path: '',   redirectTo: '/workspace', pathMatch: 'full' },
-  { path: '**', component: WorkSpaceComponent }
+  {
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full'
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'workspace',
+    loadChildren: './workspace/workspace.module#WorkspaceModule'
+  },
+  {
+    path: '**', // fallback router must in the last
+    component: LoginComponent
+  }
 ];
 
 @NgModule({
@@ -20,4 +34,4 @@ const appRoutes: Routes = [
     RouterModule
   ]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
