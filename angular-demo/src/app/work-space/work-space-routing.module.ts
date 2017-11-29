@@ -8,11 +8,15 @@ const workSpaceRoutes: Routes = [
     path: 'workspace',
     component: WorkSpaceComponent,
     children: [
-      { path: '', redirectTo: 'user', pathMatch: 'full' },
+      { path: '', redirectTo: 'org', pathMatch: 'full' },
       {
         path: 'user',
         loadChildren: '../user/user.module#UserModule'
        },
+       {
+         path: 'org',
+         loadChildren: '../org/org.module#OrgModule'
+       }
     ]
 
 

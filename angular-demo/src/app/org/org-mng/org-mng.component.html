@@ -1,0 +1,20 @@
+<div nz-row [@fadeIn]="'active'">
+    <div *ngFor="let menu of menus">
+        <nz-breadcrumb style="margin:12px 0;" >
+          <nz-breadcrumb-item>
+              <i class="anticon anticon-user"></i>
+              {{menu.name}}
+          </nz-breadcrumb-item>
+          <nz-breadcrumb-item>
+              <i class="fa fa-fw {{menu.childIcon?menu.childIcon:'fa-bars'}}"></i>
+              {{menu.childName}}
+          </nz-breadcrumb-item>
+        </nz-breadcrumb>
+      </div>
+  <div nz-col [nzSpan]="24" [nzOffset]="0" style="background:#fff;min-height: 600px;">
+      <nz-tree [nzNodes]="nodes" [nzCheckable]="true"  [nzShowLine]="fasle"  [nzOptions]="options" (nzEvent)="onEvent($event)">
+
+      </nz-tree>
+  </div>
+
+</div>

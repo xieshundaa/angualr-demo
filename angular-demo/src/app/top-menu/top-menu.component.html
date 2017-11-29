@@ -1,0 +1,28 @@
+<nz-header style="background: #fff; padding:0;">
+    <i class="anticon trigger" [class.anticon-menu-fold]="!isCollapsed" [class.anticon-menu-unfold]="isCollapsed" (click)="onTogglerClick($event)" ></i>
+    <div class="inline-block pull-right" style="padding: 0 20px;">
+        <!-- <div class="inline-block">航天二院25所</div> -->
+        <nz-dropdown [nzTrigger]="'click'" [nzPlacement]="'bottomRight'">
+          <a href class="ant-dropdown-link" nz-dropdown>
+                <span style="vertical-align:middle;">超级管理员</span>
+                <img class="user-img" src="../../assets/img/user2-160x160.jpg" alt="user img">
+
+                <i class="anticon anticon-down"></i>
+              </a>
+          <ul nz-menu style="margin-top: 22px;width: 200px;">
+            <li nz-menu-item class="text-center" style="height: 160px;background:#3c8dbc;">
+              <p>
+                <img class="img-circle" src="../../assets/img/user2-160x160.jpg" alt="">
+              </p>
+              <h5>10000</h5>
+              <h5>wizzer@qq.com</h5>
+            </li>
+            <li nz-menu-item class="clearfix">
+              <div class="pull-left"><button nz-button [nzType]="'primary'">修改密码</button></div>
+              <div class="pull-right" (click)="logout()"><button nz-button [nzType]="'primary'">退出系统</button></div>
+            </li>
+          </ul>
+        </nz-dropdown>
+      </div>
+  </nz-header>
+  <!-- (click)="isCollapsed=!isCollapsed" -->

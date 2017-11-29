@@ -30,24 +30,7 @@
     color: #108ee9;
 }
 
-.logo-box {
-    height: 65px;
-    text-align: center;
-    line-height: 65px;
-    background-color: #fff;
-    transition: all 0.15s cubic-bezier(0.645, 0.045, 0.355, 1);
-}
 
-.big-logo {
-    width: 200px;
-    flex: 0 0 200px;
-}
-
-.small-logo {
-    transition: all 0.15s cubic-bezier(0.645, 0.045, 0.355, 1);
-    width: 64px;
-    flex: 0 0 64px;
-}
 .li-big-menu {
   padding: 0 16px 0 24px;
   transition: border-color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), background 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), padding 0.1s cubic-bezier(0.645, 0.045, 0.355, 1);

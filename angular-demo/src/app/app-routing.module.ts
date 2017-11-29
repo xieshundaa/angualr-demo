@@ -15,7 +15,7 @@ const appRoutes: Routes = [
   },
   {
     path: 'workspace',
-    loadChildren: './workspace/workspace.module#WorkspaceModule'
+    loadChildren: './work-space/work-space.module#WorkspaceModule'
   },
   {
     path: '**', // fallback router must in the last

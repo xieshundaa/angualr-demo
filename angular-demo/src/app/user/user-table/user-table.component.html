@@ -1,18 +1,41 @@
-<p>
-  user-table works!
-</p>
-<div nz-row>
-    <div nz-col [nzSpan]="24" [nzOffset]="0">
-        <nz-table #nzTable [nzDataSource]="data" [nzPageSize]="10" (nzDataChange)="_displayDataChange($event)" (nzPageIndexChange)="_refreshStatus()" (nzPageSizeChange)="_refreshStatus()">
+
+<div nz-row [@fadeIn]="'active'">
+  <div nz-col [nzSpan]="24" [nzOffset]="0">
+      <div *ngFor="let menu of menus">
+          <nz-breadcrumb style="margin:12px 0;" >
+            <nz-breadcrumb-item>
+                <i class="anticon anticon-user"></i>
+                {{menu.name}}
+            </nz-breadcrumb-item>
+            <nz-breadcrumb-item>
+                <i class="fa fa-fw {{menu.childIcon?menu.childIcon:'fa-bars'}}"></i>
+                {{menu.childName}}
+            </nz-breadcrumb-item>
+          </nz-breadcrumb>
+        </div>
+        <div style="padding:24px; background: #fff; min-height: 600px;">
+          <router-outlet></router-outlet>
+          <nz-table #nzTable [nzDataSource]="data" [nzPageSize]="10" [nzShowSizeChanger]="true" nzShowQuickJumper (nzDataChange)="_displayDataChange($event)"
+            (nzPageIndexChange)="_refreshStatus()" (nzPageSizeChange)="_refreshStatus()">
             <thead nz-thead>
               <tr>
                 <th nz-th [nzCheckbox]="true">
                   <label nz-checkbox [(ngModel)]="_allChecked" [nzIndeterminate]="_indeterminate" (ngModelChange)="_checkAll($event)">
                   </label>
                 </th>
-                <th nz-th><span>Name</span></th>
-                <th nz-th><span>Age</span></th>
-                <th nz-th><span>Address</span></th>
+                <th nz-th>
+                  <span>Name</span>
+                  <nz-table-sort [(nzValue)]="sortMap.name" (nzValueChange)="sort('name',$event)"></nz-table-sort>
+                </th>
+                <th nz-th>
+                  <span>Age</span>
+                  <nz-table-sort [(nzValue)]="sortMap.age" (nzValueChange)="sort('age',$event)"></nz-table-sort>
+                </th>
+                <th nz-th>
+                  <span>Address</span>
+                  <nz-table-sort [(nzValue)]="sortMap.address" (nzValueChange)="sort('address',$event)"></nz-table-sort>
+                </th>
+                <th nz-th><span>Action</span></th>
               </tr>
             </thead>
             <tbody nz-tbody>
@@ -26,8 +49,14 @@
                 </td>
                 <td nz-td>{{data.age}}</td>
                 <td nz-td>{{data.address}}</td>
+                <td nz-td>
+                    <span>
+                      <a href="javascript:void(0);">Delete</a>
+                    </span>
+                    </td>
               </tr>
             </tbody>
           </nz-table>
-    </div>
+        </div>
+  </div>
 </div>

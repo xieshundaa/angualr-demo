@@ -9,11 +9,16 @@ import { NgZorroAntdModule } from 'ng-zorro-antd';
 
 import { WorkSpaceRoutingModule } from './work-space-routing.module';
 import { WorkSpaceComponent } from './work-space.component';
+import { LeftNavComponent } from '../left-nav/left-nav.component';
+import { TopMenuComponent } from '../top-menu/top-menu.component';
 
+import { EventBusService } from '../common/services/event-bus.service';
 
 @NgModule({
   declarations: [
-    WorkSpaceComponent
+    WorkSpaceComponent,
+    LeftNavComponent,
+    TopMenuComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +29,7 @@ import { WorkSpaceComponent } from './work-space.component';
     NgZorroAntdModule,
     WorkSpaceRoutingModule
   ],
-  providers: [],
+  providers: [EventBusService],
   bootstrap: []
 })
 export class WorkspaceModule { }

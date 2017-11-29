@@ -1,0 +1,35 @@
+
+  <div class="logo-box">
+    <div class="{{isCollapsed ? 'small-logo' : 'big-logo'}}">
+      {{isCollapsed ? 'NG' : 'Angular'}}
+    </div>
+    <!-- <div> {{isCollapsed}}</div> -->
+    <!-- <div class="small-logo" [hidden]="isCollapsed">NG</div>
+      <div class="big-logo" [hidden]="!isCollapsed">Angular</div> -->
+  </div>
+  <div class="logo">
+
+  </div>
+  <ul nz-menu [nzTheme]="'dark'" [nzMode]="isCollapsed?'vertical':'inline'">
+    <!-- <li [class.li-big-menu]="!isCollapsed" [class.li-small-menu]="isCollapsed" style="height: 42px;">
+        <span title>
+            <i class="anticon anticon-home"></i>
+            <span class="nav-text">首页</span>
+        </span>
+      </li> -->
+    <li nz-submenu *ngFor="let menu of menus">
+      <span title>
+        <i class="anticon {{menu.icon ? menu.icon : anticon-user}}"></i>
+        <span class="nav-text">{{menu.name}}</span>
+      </span>
+      <ul>
+        <li nz-menu-item *ngFor="let child of menu.children">
+          <a href="javascript:void(0);" routerLink="{{child.route?child.route:'/home'}}">
+            <i class="fa fa-fw {{child.icon?child.icon:'fa-bars'}}"></i>
+            <span>{{child.name}}</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
